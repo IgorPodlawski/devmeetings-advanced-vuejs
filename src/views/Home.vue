@@ -7,7 +7,6 @@
       class="default-input"
       @input="checkChange"
     />
-    <VoteOptions />
     <VoteOptions>
       <template v-slot:item="{ option }">
         <base-button>{{ option.text }}</base-button>

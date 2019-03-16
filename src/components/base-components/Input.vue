@@ -3,7 +3,7 @@
     {{ label }}
     <input 
       :value="content"
-      type="text"
+      :type="type"
       v-bind="$attrs"
       @input="handleInput"
       v-on="listeners"
@@ -23,6 +23,11 @@ export default {
     value: {
       type: String,
       required: true
+    },
+    type: {
+      type: String,
+      required: false,
+      default: 'text'
     },
     label: {
       type: String,
