@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './views/Home.vue'
+import enterGuard from './utils/enter-guard.js';
 
 Vue.use(Router)
 
@@ -11,22 +12,38 @@ export default new Router({
     {
       path: '/',
       name: 'home',
-      component: Home
+      beforeEnter: enterGuard,
+      component: Home,
+      meta: {
+        requiresAuth: false
+      }
     },
     {
       path: '/score',
       name: 'score',
-      component: () => import(/* webpackChunkName: "score" */ './views/Score.vue')
+      beforeEnter: enterGuard,
+      component: () => import(/* webpackChunkName: "score" */ './views/Score.vue'),
+      meta: {
+        requiresAuth: false
+      }
     },
     {
       path: '/vote',
       name: 'vote',
-      component: () => import(/* webpackChunkName: "vote" */ './views/Vote.vue')
+      beforeEnter: enterGuard,
+      component: () => import(/* webpackChunkName: "vote" */ './views/Vote.vue'),
+      meta: {
+        requiresAuth: true
+      }
     },
     {
       path: '/settings',
       name: 'settings',
-      component: () => import(/* webpackChunkName: "settings" */ './views/Settings.vue')
+      beforeEnter: enterGuard,
+      component: () => import(/* webpackChunkName: "settings" */ './views/Settings.vue'),
+      meta: {
+        requiresAuth: true
+      }
     }
   ]
 })
