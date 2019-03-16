@@ -1,9 +1,9 @@
 <template>
   <div class="home">
-    <base-button :loading-state="false" button-text="Przycisk" />
+    <base-button :loading-state="false">Przycisk</base-button>
     <base-input
       v-model="inputData"
-      label="Opis buttona"
+      label="Opis inputa"
       class="default-input"
       @input="checkChange"
     />

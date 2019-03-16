@@ -1,13 +1,10 @@
 <template>
   <button :disabled="disabledValue" class="button" :class="{'button--disabled': disabledValue}">
-    {{ buttonText }}
+    <slot />
   </button>
 </template>
 
 <script>
-const minTextLength = 1, maxTextLength = 10;
-const properLength = (passedLength) => (passedLength >= minTextLength && passedLength <= maxTextLength);
-
 export default {
   props: {
     loadingState: {
@@ -20,11 +17,6 @@ export default {
       required: false,
       default: false,
     },
-    buttonText: {
-      type: String,
-      required: true,
-      validator: val => properLength(val.length),
-    }
   },
   computed: {
     disabledValue: function () {
