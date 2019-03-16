@@ -5,6 +5,10 @@ import store from './store'
 
 Vue.config.productionTip = false
 
+Vue.component('base-button', function (resolve) {
+  require(['@/components/base-components/Button.vue'], resolve)
+})
+
 new Vue({
   router,
   store,
