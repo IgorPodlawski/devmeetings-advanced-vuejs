@@ -19,6 +19,7 @@ export default {
   },
   mounted() {
     this.$store.dispatch('user/assignRandomIdToUser');
+    this.$store.dispatch('user/setUserAuthLevelFromLocalStorage');
   }
 }
 </script>

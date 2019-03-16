@@ -1,5 +1,6 @@
 const initialState = () => ({
   id: null,
+  isAdmin: false
 });
 
 const state = initialState;
@@ -10,6 +11,9 @@ const mutations = {
   SET_USER_ID(store, payload) {
     store.id = payload;
   },
+  SET_USER_ADMIN(store, payload) {
+    store.isAdmin = payload;
+  }
 };
 
 const actions = {
@@ -20,6 +24,10 @@ const actions = {
     const GENERATED_ID = actions.generateRandomId();
     context.commit('SET_USER_ID', GENERATED_ID);
     return GENERATED_ID;
+  },
+  setUserAuthLevelFromLocalStorage(context) {
+    const LOCAL_STORAGE_IS_ADMIN = localStorage.getItem('is-admin') === 'true';
+    context.commit('SET_USER_ADMIN', LOCAL_STORAGE_IS_ADMIN);
   },
 };
 
