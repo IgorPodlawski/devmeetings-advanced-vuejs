@@ -18,8 +18,7 @@ export default {
     ...mapActions('settings', ['getSettings']),
   },
   mounted() {
-    this.$store.dispatch('user/assignRandomIdToUser');
-    // this.$store.dispatch('user/setUserAuthLevelFromLocalStorage');
+    !this.$store.state.user.id && this.$store.dispatch('user/assignRandomIdToUser');
   }
 }
 </script>
