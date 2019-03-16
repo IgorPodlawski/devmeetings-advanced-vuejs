@@ -25,10 +25,6 @@ const actions = {
     context.commit('SET_USER_ID', GENERATED_ID);
     return GENERATED_ID;
   },
-  setUserAuthLevelFromLocalStorage(context) {
-    const LOCAL_STORAGE_IS_ADMIN = localStorage.getItem('is-admin') === 'true';
-    context.commit('SET_USER_ADMIN', LOCAL_STORAGE_IS_ADMIN);
-  },
 };
 
 export default {
