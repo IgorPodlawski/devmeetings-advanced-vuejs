@@ -12,7 +12,6 @@ export default new Router({
     {
       path: '/',
       name: 'home',
-      beforeEnter: enterGuard,
       component: Home,
       meta: {
         requiresAuth: false
@@ -21,7 +20,6 @@ export default new Router({
     {
       path: '/score',
       name: 'score',
-      beforeEnter: enterGuard,
       component: () => import(/* webpackChunkName: "score" */ './views/Score.vue'),
       meta: {
         requiresAuth: false
