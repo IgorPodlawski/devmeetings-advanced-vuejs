@@ -10,6 +10,20 @@
   </div>
 </template>
 
+<script>
+import { mapActions } from 'vuex';
+
+export default {
+  methods: {
+    ...mapActions('settings', ['getSettings']),
+  },
+  mounted() {
+    this.$store.dispatch('user/assignRandomIdToUser');
+  }
+}
+</script>
+
+
 <style lang="scss">
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
