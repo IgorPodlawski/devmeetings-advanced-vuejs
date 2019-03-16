@@ -3,6 +3,7 @@ import Vuex from 'vuex'
 import user from './modules/user.module';
 import settings from './modules/settings.module';
 import VuexPersistence from 'vuex-persist'
+import { firebaseMutations } from 'vuexfire';
 
 Vue.use(Vuex)
 
@@ -15,5 +16,8 @@ export default new Vuex.Store({
   modules: {
     user,
     settings
+  },
+  mutations: {
+    ...firebaseMutations,
   },
 })
